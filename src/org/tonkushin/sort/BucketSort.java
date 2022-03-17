@@ -6,11 +6,6 @@ package org.tonkushin.sort;
 public class BucketSort implements Sort {
 
     public void sort(int[] arr) {
-        if (arr.length > (int) Math.pow(10, 8)) {
-            System.out.println("Skip");
-            return;
-        }
-
         // Ищем элемент с максимальным значением
         int max = 0;
         for (int val : arr) {

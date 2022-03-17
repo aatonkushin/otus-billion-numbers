@@ -7,12 +7,6 @@ public class QuickSort implements Sort {
     int[] arr;
 
     public void sort(int[] arr) {
-
-        if (arr.length > (int) Math.pow(10, 8)) {
-            System.out.println("Skip");
-            return;
-        }
-
         this.arr = arr;
 
         sort(0, arr.length - 1);

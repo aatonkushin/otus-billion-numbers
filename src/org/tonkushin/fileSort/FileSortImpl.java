@@ -13,7 +13,7 @@ public class FileSortImpl implements FileSort {
     private final String tmpFilename;
     private final int length;
     private final int max;
-    private static final int parts = 100;
+    private static final int parts = 4;
     private String resultFileName;
 
     @SuppressWarnings("ResultOfMethodCallIgnored")

@@ -12,26 +12,26 @@ public class Main {
     private static final int max = 65535;
 
     public static void main(String[] args) {
-        for (int i = 2; i < 9; i++) {
-            int length = (int) Math.pow(10, i);
-            Generator generator = new Generator(String.format(filename, length), max, length);
-            generator.generate();
+//        for (int i = 2; i < 9; i++) {
+//            int length = (int) Math.pow(10, i);
+//            Generator generator = new Generator(String.format(filename, length), max, length);
+//            generator.generate();
+//
+//            process("QuickSort ", new QuickSort(), generator.getArray());
+//            process("MergeSort ", new MergeSort(), generator.getArray());
+//            process("BucketSort ", new BucketSort(), generator.getArray());
+//            process("CountingSort ", new CountingSort(), generator.getArray());
+//            process("RadixSort ", new RadixSort(), generator.getArray());
+//        }
 
-            process("QuickSort ", new QuickSort(), generator.getArray());
-            process("MergeSort ", new MergeSort(), generator.getArray());
-            process("BucketSort ", new BucketSort(), generator.getArray());
-            process("CountingSort ", new CountingSort(), generator.getArray());
-            process("RadixSort ", new RadixSort(), generator.getArray());
-        }
-
-        for (int i = 3; i < 9; i++) {
+        for (int i = 9; i <= 9; i++) {
             int length = (int) Math.pow(10, i);
             processFileArray("File array QuickSort", new QuickSort(), length);
             processFileArray("File array MergeSort", new MergeSort(), length);
             processFileArray("File array BucketSort", new BucketSort(), length);
             processFileArray("File array CountingSort", new CountingSort(), length);
             processFileArray("File array RadixSort", new RadixSort(), length);
-
+            System.out.println();
         }
     }
 
