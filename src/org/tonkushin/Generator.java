@@ -1,8 +1,6 @@
 package org.tonkushin;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 
 /**
  * Вспомогательный класс для генерации файла с числами, а также для его чтения
@@ -19,7 +17,7 @@ public class Generator {
         this.length = length;
 
         try {
-            fileArray = new FileArray(filename, false);
+            fileArray = new FileArray(filename, true);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -42,23 +40,17 @@ public class Generator {
      * @return массив чисел из сгенерированного файла
      */
     public int[] getArray() {
-        File file = new File(filename);
-
-        if (!file.exists()) {
-            generate();
-        }
-
         return load();
     }
 
     private int[] load() {
         int[] retVal = new int[length];
 
-        try {
+        try (FileArray fileArray = new FileArray(filename, false)) {
             for (int i = 0; i < length; i++) {
                 retVal[i] = fileArray.get();
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
