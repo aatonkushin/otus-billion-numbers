@@ -12,19 +12,27 @@ public class Main {
     private static final int max = 65535;
 
     public static void main(String[] args) {
-//        for (int i = 2; i < 9; i++) {
-//            int length = (int) Math.pow(10, i);
-//            Generator generator = new Generator(String.format(filename, length), max, length);
-//            generator.generate();
-//
-//            process("QuickSort ", new QuickSort(), generator.getArray());
-//            process("MergeSort ", new MergeSort(), generator.getArray());
-//            process("BucketSort ", new BucketSort(), generator.getArray());
-//            process("CountingSort ", new CountingSort(), generator.getArray());
-//            process("RadixSort ", new RadixSort(), generator.getArray());
-//        }
+        // Генерируем файлы
+        for (int i = 2; i <= 9; i++) {
+            int length = (int) Math.pow(10, i);
+            Generator generator = new Generator(String.format(filename, length), max, length);
+            generator.generate();
+        }
 
-        for (int i = 9; i <= 9; i++) {
+        // Сортировка в памяти
+        for (int i = 2; i < 9; i++) {
+            int length = (int) Math.pow(10, i);
+            Generator generator = new Generator(String.format(filename, length), max, length);
+
+            process("QuickSort ", new QuickSort(), generator.getArray());
+            process("MergeSort ", new MergeSort(), generator.getArray());
+            process("BucketSort ", new BucketSort(), generator.getArray());
+            process("CountingSort ", new CountingSort(), generator.getArray());
+            process("RadixSort ", new RadixSort(), generator.getArray());
+        }
+
+        // Сортировка через файлы
+        for (int i = 2; i <= 9; i++) {
             int length = (int) Math.pow(10, i);
             processFileArray("File array QuickSort", new QuickSort(), length);
             processFileArray("File array MergeSort", new MergeSort(), length);
@@ -45,7 +53,7 @@ public class Main {
 
     private static void processFileArray(String name, Sort sort, int length) {
         System.out.println(name + " (" + length + "): ");
-        FileSort fs = new FileSortImpl(dir, length, max);
+        FileSort fs = new FileSortImpl(dir, length);
         sw.start();
         fs.sort(sort);
         sw.stop();

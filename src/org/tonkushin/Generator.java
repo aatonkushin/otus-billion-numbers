@@ -17,7 +17,7 @@ public class Generator {
         this.length = length;
 
         try {
-            fileArray = new FileArray(filename, true);
+            fileArray = new ShortFileArray(filename, true);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -46,7 +46,7 @@ public class Generator {
     private int[] load() {
         int[] retVal = new int[length];
 
-        try (FileArray fileArray = new FileArray(filename, false)) {
+        try (FileArray fileArray = new ShortFileArray(filename, false)) {
             for (int i = 0; i < length; i++) {
                 retVal[i] = fileArray.get();
             }

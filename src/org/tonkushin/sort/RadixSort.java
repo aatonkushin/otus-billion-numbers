@@ -16,7 +16,7 @@ public class RadixSort implements Sort {
     }
 
     void sort(int[] arr, int place) {
-        int max = 0;
+        int max = arr[0];
         for (int i = 1; i < arr.length; i++) {
             if (arr[i] > max)
                 max = arr[i];
